@@ -94,9 +94,6 @@
             this.comboBoxUsers.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.comboBoxUsers.ForeColor = System.Drawing.Color.White;
             this.comboBoxUsers.FormattingEnabled = true;
-            this.comboBoxUsers.Items.AddRange(new object[] {
-            "Продавец",
-            "Администратор"});
             this.comboBoxUsers.Location = new System.Drawing.Point(240, 73);
             this.comboBoxUsers.Name = "comboBoxUsers";
             this.comboBoxUsers.Size = new System.Drawing.Size(141, 27);

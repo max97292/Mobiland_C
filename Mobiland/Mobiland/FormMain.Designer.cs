@@ -31,47 +31,44 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAddProductToReceipt = new System.Windows.Forms.Button();
             this.buttonCreateReceipt = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSelectStaff = new System.Windows.Forms.ComboBox();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mobilandDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mobilandDataSet = new Mobiland.mobilandDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.productkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categorykeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staffTableAdapter = new Mobiland.mobilandDataSetTableAdapters.StaffTableAdapter();
-            this.productTableAdapter = new Mobiland.mobilandDataSetTableAdapters.ProductTableAdapter();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Product_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Manufacturer_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobilandDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonClear = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -93,6 +90,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(87, 20);
             this.toolStripMenuItem1.Text = "Справочник";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -112,6 +110,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.buttonClear);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.textBoxSearch);
             this.panel2.Controls.Add(this.labelSearch);
@@ -126,18 +127,52 @@
             this.panel2.Size = new System.Drawing.Size(1264, 206);
             this.panel2.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(482, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Дата";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(173, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Кассир";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Visible = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.White;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Black;
+            this.dateTimePicker1.Location = new System.Drawing.Point(402, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
             // textBoxSearch
             // 
+            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearch.BackColor = System.Drawing.Color.Black;
             this.textBoxSearch.ForeColor = System.Drawing.Color.White;
             this.textBoxSearch.Location = new System.Drawing.Point(958, 60);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(252, 26);
-            this.textBoxSearch.TabIndex = 4;
+            this.textBoxSearch.TabIndex = 7;
             this.textBoxSearch.Visible = false;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // labelSearch
             // 
+            this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSearch.AutoSize = true;
             this.labelSearch.Location = new System.Drawing.Point(982, 22);
             this.labelSearch.Name = "labelSearch";
@@ -149,9 +184,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.buttonAddProductToReceipt);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(0, 104);
@@ -162,38 +199,75 @@
             this.groupBox1.Text = "Продажа";
             this.groupBox1.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(298, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Количество";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDown1.BackColor = System.Drawing.Color.Black;
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
+            this.numericUpDown1.Location = new System.Drawing.Point(402, 45);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.Black;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(914, 41);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 30);
-            this.button4.TabIndex = 7;
+            this.button4.TabIndex = 9;
             this.button4.Text = "Просмотреть чек";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.Color.Black;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(1097, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(133, 30);
-            this.button3.TabIndex = 8;
+            this.button3.TabIndex = 10;
             this.button3.Text = "Закрыть чек";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // buttonAddProductToReceipt
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(12, 41);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 30);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Добавить товар в чек";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonAddProductToReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAddProductToReceipt.BackColor = System.Drawing.Color.Black;
+            this.buttonAddProductToReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddProductToReceipt.Location = new System.Drawing.Point(12, 41);
+            this.buttonAddProductToReceipt.Name = "buttonAddProductToReceipt";
+            this.buttonAddProductToReceipt.Size = new System.Drawing.Size(192, 30);
+            this.buttonAddProductToReceipt.TabIndex = 6;
+            this.buttonAddProductToReceipt.Text = "Добавить товар в чек";
+            this.buttonAddProductToReceipt.UseVisualStyleBackColor = false;
+            this.buttonAddProductToReceipt.Click += new System.EventHandler(this.buttonAddProductToReceipt_Click);
             // 
             // buttonCreateReceipt
             // 
@@ -215,12 +289,11 @@
             this.label2.Size = new System.Drawing.Size(109, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Выберите дату";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxSelectStaff
             // 
             this.comboBoxSelectStaff.BackColor = System.Drawing.Color.Black;
-            this.comboBoxSelectStaff.DataSource = this.staffBindingSource;
-            this.comboBoxSelectStaff.DisplayMember = "Full_name";
             this.comboBoxSelectStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSelectStaff.ForeColor = System.Drawing.Color.White;
             this.comboBoxSelectStaff.FormattingEnabled = true;
@@ -228,22 +301,6 @@
             this.comboBoxSelectStaff.Name = "comboBoxSelectStaff";
             this.comboBoxSelectStaff.Size = new System.Drawing.Size(269, 27);
             this.comboBoxSelectStaff.TabIndex = 1;
-            this.comboBoxSelectStaff.ValueMember = "Full_name";
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.mobilandDataSetBindingSource;
-            // 
-            // mobilandDataSetBindingSource
-            // 
-            this.mobilandDataSetBindingSource.DataSource = this.mobilandDataSet;
-            this.mobilandDataSetBindingSource.Position = 0;
-            // 
-            // mobilandDataSet
-            // 
-            this.mobilandDataSet.DataSetName = "mobilandDataSet";
-            this.mobilandDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -253,6 +310,7 @@
             this.label1.Size = new System.Drawing.Size(132, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Выберите кассира";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView2
             // 
@@ -262,7 +320,6 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -276,114 +333,101 @@
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productkeyDataGridViewTextBoxColumn,
-            this.categorykeyDataGridViewTextBoxColumn,
-            this.manufacturerkeyDataGridViewTextBoxColumn,
-            this.productnameDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.productBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Product_key,
+            this.Category_key,
+            this.Manufacturer_key,
+            this.Product_name,
+            this.Price});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Location = new System.Drawing.Point(0, 24);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView2.RowHeadersVisible = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Black;
             this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridView2.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1264, 499);
-            this.dataGridView2.TabIndex = 5;
+            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.Visible = false;
+            this.dataGridView2.DoubleClick += new System.EventHandler(this.dataGridView2_DoubleClick);
             // 
-            // productkeyDataGridViewTextBoxColumn
+            // Product_key
             // 
-            this.productkeyDataGridViewTextBoxColumn.DataPropertyName = "Product_key";
-            this.productkeyDataGridViewTextBoxColumn.HeaderText = "Код товара";
-            this.productkeyDataGridViewTextBoxColumn.MinimumWidth = 40;
-            this.productkeyDataGridViewTextBoxColumn.Name = "productkeyDataGridViewTextBoxColumn";
-            this.productkeyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productkeyDataGridViewTextBoxColumn.Width = 75;
+            this.Product_key.HeaderText = "Код товара";
+            this.Product_key.MinimumWidth = 100;
+            this.Product_key.Name = "Product_key";
+            this.Product_key.ReadOnly = true;
+            this.Product_key.Width = 125;
             // 
-            // categorykeyDataGridViewTextBoxColumn
+            // Category_key
             // 
-            this.categorykeyDataGridViewTextBoxColumn.DataPropertyName = "Category_key";
-            this.categorykeyDataGridViewTextBoxColumn.HeaderText = "Код категории";
-            this.categorykeyDataGridViewTextBoxColumn.MinimumWidth = 40;
-            this.categorykeyDataGridViewTextBoxColumn.Name = "categorykeyDataGridViewTextBoxColumn";
-            this.categorykeyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categorykeyDataGridViewTextBoxColumn.Width = 75;
+            this.Category_key.HeaderText = "Код категории";
+            this.Category_key.MinimumWidth = 100;
+            this.Category_key.Name = "Category_key";
+            this.Category_key.ReadOnly = true;
+            this.Category_key.Width = 125;
             // 
-            // manufacturerkeyDataGridViewTextBoxColumn
+            // Manufacturer_key
             // 
-            this.manufacturerkeyDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer_key";
-            this.manufacturerkeyDataGridViewTextBoxColumn.HeaderText = "Код производителя";
-            this.manufacturerkeyDataGridViewTextBoxColumn.MinimumWidth = 40;
-            this.manufacturerkeyDataGridViewTextBoxColumn.Name = "manufacturerkeyDataGridViewTextBoxColumn";
-            this.manufacturerkeyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.manufacturerkeyDataGridViewTextBoxColumn.Width = 115;
+            this.Manufacturer_key.HeaderText = "Код производителя";
+            this.Manufacturer_key.MinimumWidth = 100;
+            this.Manufacturer_key.Name = "Manufacturer_key";
+            this.Manufacturer_key.ReadOnly = true;
+            this.Manufacturer_key.Width = 125;
             // 
-            // productnameDataGridViewTextBoxColumn
+            // Product_name
             // 
-            this.productnameDataGridViewTextBoxColumn.DataPropertyName = "Product_name";
-            this.productnameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.productnameDataGridViewTextBoxColumn.MinimumWidth = 200;
-            this.productnameDataGridViewTextBoxColumn.Name = "productnameDataGridViewTextBoxColumn";
-            this.productnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productnameDataGridViewTextBoxColumn.Width = 350;
+            this.Product_name.HeaderText = "Наименование";
+            this.Product_name.MinimumWidth = 200;
+            this.Product_name.Name = "Product_name";
+            this.Product_name.ReadOnly = true;
+            this.Product_name.Width = 350;
             // 
-            // priceDataGridViewTextBoxColumn
+            // Price
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 80;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Price.HeaderText = "Цена";
+            this.Price.MinimumWidth = 90;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 110;
             // 
-            // productBindingSource
+            // buttonClear
             // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.mobilandDataSetBindingSource;
-            // 
-            // staffTableAdapter
-            // 
-            this.staffTableAdapter.ClearBeforeFill = true;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Black;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(402, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 2;
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.AutoSize = true;
+            this.buttonClear.BackColor = System.Drawing.Color.Black;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Location = new System.Drawing.Point(1216, 59);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(30, 31);
+            this.buttonClear.TabIndex = 8;
+            this.buttonClear.Text = "×";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Visible = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // FormMain
             // 
@@ -400,6 +444,7 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mobiland";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed_1);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip2.ResumeLayout(false);
@@ -407,11 +452,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSet)).EndInit();
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobilandDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,22 +483,22 @@
         private System.Windows.Forms.ComboBox comboBoxSelectStaff;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource mobilandDataSetBindingSource;
-        private mobilandDataSet mobilandDataSet;
-        private System.Windows.Forms.BindingSource staffBindingSource;
-        private mobilandDataSetTableAdapters.StaffTableAdapter staffTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAddProductToReceipt;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.BindingSource productBindingSource;
-        private mobilandDataSetTableAdapters.ProductTableAdapter productTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productkeyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categorykeyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerkeyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category_key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Manufacturer_key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
