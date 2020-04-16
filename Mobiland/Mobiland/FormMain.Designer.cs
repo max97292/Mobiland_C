@@ -37,7 +37,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemCatalog = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonClear = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             this.menuStrip2.BackColor = System.Drawing.Color.Black;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCatalog,
-            this.toolStripMenuItemAbout,
             this.toolStripMenuItemExit});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -92,15 +90,9 @@
             this.toolStripMenuItemCatalog.Text = "Справочник";
             this.toolStripMenuItemCatalog.Click += new System.EventHandler(this.toolStripMenuItemCatalog_Click);
             // 
-            // toolStripMenuItemAbout
-            // 
-            this.toolStripMenuItemAbout.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(94, 20);
-            this.toolStripMenuItemAbout.Text = "О программе";
-            // 
             // toolStripMenuItemExit
             // 
+            this.toolStripMenuItemExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripMenuItemExit.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
             this.toolStripMenuItemExit.Size = new System.Drawing.Size(54, 20);
@@ -473,7 +465,6 @@
         private System.Windows.Forms.BindingSource tovarBindingSource;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCatalog;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView2;

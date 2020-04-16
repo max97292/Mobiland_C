@@ -10,8 +10,7 @@ namespace Mobiland
 {
     static class Program
     {
-        public static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Mobiland_C\Mobiland\Mobiland\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
-        //public static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
+        public static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
         public static string User;
         [STAThread]
         static async Task Main()

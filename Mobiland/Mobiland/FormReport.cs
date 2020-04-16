@@ -19,14 +19,9 @@ namespace Mobiland
             InitializeComponent();
         }
 
-        private async void crystalReportViewer1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private async void FormReport_Load(object sender, EventArgs e)
         {
-            int Receipt_key;
+            int Receipt_key, lastRow;
             using (SqlCommand command = new SqlCommand($"SELECT TOP 1 * FROM [Receipt] ORDER BY Receipt_key DESC", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
@@ -39,6 +34,11 @@ namespace Mobiland
             SqlDataAdapter dataAdapter = new SqlDataAdapter($"SELECT [Receipt].[Receipt_key], [Receipt].[Staff_key], [Receipt].[Date], [Receipt].[Total_amount], [Sales].[Sales_key], [Sales].[Product_key], [Sales].[Amount], [Sales].[Sales_price], [Staff].[Full_name], [Product].[Product_name], [Product].[Price] FROM [Receipt],[Sales],[Staff],[Product] WHERE ([Receipt].[Receipt_key] LIKE '{Receipt_key}') AND ([Staff].[Staff_key] = [Receipt].[Staff_key]) AND ([Product].[Product_key] = [Sales].[Product_key]) AND ([Sales].Receipt_key LIKE '{Receipt_key}')", Program.connection);
             DataSet1 dataSet = new DataSet1();
             dataAdapter.Fill(dataSet, "DataTable1");
+            if(dataSet.DataTable1.Count != 0)
+            {
+                lastRow = (dataSet.DataTable1.Rows.Count) - 1;
+                dataSet.DataTable1.Rows[lastRow]["Total_amount"] += " грн.";
+            }
             ReportDocument reportDocument = new ReportDocument();
             reportDocument.Load("CrystalReport1.rpt");
             reportDocument.SetDataSource(dataSet);
