@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,16 +14,10 @@ namespace Mobiland
 {
     public partial class FormReceipt : Form
     {
-        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ADMIN\source\repos\Mobiland_C\Mobiland\Mobiland\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
         public FormReceipt()
         {
             InitializeComponent();
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-                FillTable();
-            }
+            FillTable();
         }
 
         private async void FillTable()
@@ -30,7 +25,7 @@ namespace Mobiland
             int Receipt_key, Staff_key;
             double Total_amount;
             string Product_name, Full_name;
-            using (SqlCommand command = new SqlCommand($"SELECT TOP 1 * FROM [Receipt] ORDER BY Receipt_key DESC", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT TOP 1 * FROM [Receipt] ORDER BY Receipt_key DESC", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -41,7 +36,7 @@ namespace Mobiland
                 }
             }
 
-            using (SqlCommand command = new SqlCommand($"SELECT [Full_name] FROM [Staff] WHERE [Staff_key] LIKE '{Staff_key}'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT [Full_name] FROM [Staff] WHERE [Staff_key] LIKE '{Staff_key}'", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -50,7 +45,7 @@ namespace Mobiland
                 }
             }
 
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Sales] WHERE [Receipt_key] LIKE '{Receipt_key}'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Sales] WHERE [Receipt_key] LIKE '{Receipt_key}'", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -63,7 +58,7 @@ namespace Mobiland
                             int Amount = reader.GetInt32(3);
                             double Sales_price = reader.GetDouble(4);
 
-                            using (SqlCommand command1 = new SqlCommand($"SELECT [Product_name] FROM [Product] WHERE [Product_key] LIKE '{Product_key}'", connection))
+                            using (SqlCommand command1 = new SqlCommand($"SELECT [Product_name] FROM [Product] WHERE [Product_key] LIKE '{Product_key}'", Program.connection))
                             {
                                 using (SqlDataReader reader1 = await command1.ExecuteReaderAsync())
                                 {
@@ -106,12 +101,12 @@ namespace Mobiland
             int Sales_key = Convert.ToInt32(Sales_key_cell.Value);
             DataGridViewCell Total_amount_cell = dataGridView2.SelectedCells[5];
             double Total_amount_Cell = Convert.ToDouble(Total_amount_cell.Value);
-            using (SqlCommand command1 = new SqlCommand($"DELETE FROM [Sales] WHERE [Sales_key] = '{Sales_key}'", connection))
+            using (SqlCommand command1 = new SqlCommand($"DELETE FROM [Sales] WHERE [Sales_key] = '{Sales_key}'", Program.connection))
             {
                 await command1.ExecuteNonQueryAsync();
             }
 
-            using (SqlCommand command = new SqlCommand($"SELECT TOP 1 * FROM [Receipt] ORDER BY Receipt_key DESC", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT TOP 1 * FROM [Receipt] ORDER BY Receipt_key DESC", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -123,7 +118,7 @@ namespace Mobiland
 
             Total_amount -= Total_amount_Cell;
 
-            using (SqlCommand command2 = new SqlCommand($"UPDATE [Receipt] SET [Total_amount] = '{Total_amount}'  WHERE [Receipt_key] = '{Receipt_key}'", connection))
+            using (SqlCommand command2 = new SqlCommand($"UPDATE [Receipt] SET [Total_amount] = '{Total_amount}'  WHERE [Receipt_key] = '{Receipt_key}'", Program.connection))
             {
                 await command2.ExecuteNonQueryAsync();
             }

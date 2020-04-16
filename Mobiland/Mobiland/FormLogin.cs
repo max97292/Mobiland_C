@@ -13,23 +13,19 @@ namespace Mobiland
 {
     public partial class FormLogin : Form
     {
-        public string User;
-        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ADMIN\source\repos\Mobiland_C\Mobiland\Mobiland\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
         public FormLogin()
         {
             InitializeComponent();
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-                FillUser();
-                User = null;
-            }
+            FillUser();
         }
 
         private async void FillUser()
         {
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Users]", connection))
+            if (Program.connection.State == ConnectionState.Closed)
+            {
+                Program.connection.Open();
+            }
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Users]", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -42,7 +38,7 @@ namespace Mobiland
         }
         private async Task<bool> FillUsers(string User, string Pass)
         {
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Users] WHERE [Username] = '{User}'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Users] WHERE [Username] = '{User}'", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -63,7 +59,12 @@ namespace Mobiland
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private async void buttonLogin_Click(object sender, EventArgs e)
         {
             string password = textBoxPassword.Text;
             string user = Convert.ToString(comboBoxUsers.SelectedItem);
@@ -72,14 +73,14 @@ namespace Mobiland
             if (!String.IsNullOrEmpty(user) & !String.IsNullOrEmpty(password))
             {
                 bool auth = await FillUsers(user, password);
-                if (user == "Seller" & auth == true)
+                if (auth == true)
                 {
                     textBoxPassword.Text = null;
-                    label1.Visible = false;
-                    label2.Visible = false;
+                    labelUsers.Visible = false;
+                    labelPassword.Visible = false;
                     comboBoxUsers.Visible = false;
                     textBoxPassword.Visible = false;
-                    button1.Visible = false;
+                    buttonLogin.Visible = false;
                     progressBar1.Visible = true;
                     for (int i = 0; i < 100; i++)
                     {
@@ -87,19 +88,21 @@ namespace Mobiland
                         System.Threading.Thread.Sleep(25);
                         if (progressBar1.Value == 99)
                         {
+                            if (user == "Seller")
+                            {
+                                Program.User = user;
+                            }
+                            else if (user == "Admin")
+                            {
+                                Program.User = user;
+                            }
                             FormMain.Show();
                             this.Visible = false;
-                            User = user;
                         }
                     }
-                }
-                else if (user == "Admin" & auth == true)
-                {
-                    MessageBox.Show("Добро пожаловать " + user);
-                    textBoxPassword.Text = null;
 
                 }
-                else if(auth == false)
+                else if (auth == false)
                 {
                     MessageBox.Show("Введен не верный пароль, попробуйте еще раз!");
                     textBoxPassword.Text = null;
@@ -116,11 +119,6 @@ namespace Mobiland
                     MessageBox.Show("Проверьте пароль");
                 }
             }
-        }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

@@ -51,48 +51,62 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCatalog));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageProducts = new System.Windows.Forms.TabPage();
+            this.panelProduct = new System.Windows.Forms.Panel();
+            this.textBoxProductKey = new System.Windows.Forms.TextBox();
+            this.comboBoxManufacturerKey = new System.Windows.Forms.ComboBox();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.labelProductName = new System.Windows.Forms.Label();
+            this.labelManufacturerKey = new System.Windows.Forms.Label();
+            this.comboBoxCategoryKey = new System.Windows.Forms.ComboBox();
+            this.buttonCancelProduct = new System.Windows.Forms.Button();
+            this.buttonOkProduct = new System.Windows.Forms.Button();
+            this.textBoxProductName = new System.Windows.Forms.TextBox();
+            this.labelCategoryKey = new System.Windows.Forms.Label();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.labelProductKey = new System.Windows.Forms.Label();
+            this.buttonDeleteProduct = new System.Windows.Forms.Button();
+            this.buttonEditProduct = new System.Windows.Forms.Button();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.Product_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Manufacturer_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPageStaff = new System.Windows.Forms.TabPage();
             this.dataGridViewStaff = new System.Windows.Forms.DataGridView();
             this.Staff_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panelStaff = new System.Windows.Forms.Panel();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.buttonCancelStaff = new System.Windows.Forms.Button();
+            this.buttonOkStaff = new System.Windows.Forms.Button();
+            this.labelPosition = new System.Windows.Forms.Label();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.labelFullName = new System.Windows.Forms.Label();
+            this.textBoxStaffKey = new System.Windows.Forms.TextBox();
+            this.labelStaffKey = new System.Windows.Forms.Label();
+            this.buttonDeleteStaff = new System.Windows.Forms.Button();
+            this.buttonEditStaff = new System.Windows.Forms.Button();
+            this.buttonAddStaff = new System.Windows.Forms.Button();
             this.tabPageManufacturer = new System.Windows.Forms.TabPage();
             this.dataGridViewManufacturer = new System.Windows.Forms.DataGridView();
             this.Manufacturers_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_of_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.tabPageReceipt = new System.Windows.Forms.TabPage();
             this.dataGridViewReceipt = new System.Windows.Forms.DataGridView();
             this.Receipt_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Staf_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sales_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageProducts.SuspendLayout();
+            this.panelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             this.tabPageStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStaff)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panelStaff.SuspendLayout();
             this.tabPageManufacturer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManufacturer)).BeginInit();
             this.tabPageReceipt.SuspendLayout();
@@ -111,13 +125,14 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1264, 729);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageProducts
             // 
             this.tabPageProducts.BackColor = System.Drawing.Color.Black;
             this.tabPageProducts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPageProducts.Controls.Add(this.panelProduct);
             this.tabPageProducts.Controls.Add(this.dataGridViewProduct);
-            this.tabPageProducts.Controls.Add(this.panel1);
             this.tabPageProducts.ForeColor = System.Drawing.Color.White;
             this.tabPageProducts.ImageKey = "(отсутствует)";
             this.tabPageProducts.Location = new System.Drawing.Point(4, 28);
@@ -126,6 +141,208 @@
             this.tabPageProducts.Size = new System.Drawing.Size(1256, 697);
             this.tabPageProducts.TabIndex = 0;
             this.tabPageProducts.Text = "Товары";
+            // 
+            // panelProduct
+            // 
+            this.panelProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelProduct.Controls.Add(this.textBoxProductKey);
+            this.panelProduct.Controls.Add(this.comboBoxManufacturerKey);
+            this.panelProduct.Controls.Add(this.labelPrice);
+            this.panelProduct.Controls.Add(this.labelProductName);
+            this.panelProduct.Controls.Add(this.labelManufacturerKey);
+            this.panelProduct.Controls.Add(this.comboBoxCategoryKey);
+            this.panelProduct.Controls.Add(this.buttonCancelProduct);
+            this.panelProduct.Controls.Add(this.buttonOkProduct);
+            this.panelProduct.Controls.Add(this.textBoxProductName);
+            this.panelProduct.Controls.Add(this.labelCategoryKey);
+            this.panelProduct.Controls.Add(this.textBoxPrice);
+            this.panelProduct.Controls.Add(this.labelProductKey);
+            this.panelProduct.Controls.Add(this.buttonDeleteProduct);
+            this.panelProduct.Controls.Add(this.buttonEditProduct);
+            this.panelProduct.Controls.Add(this.buttonAddProduct);
+            this.panelProduct.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelProduct.Location = new System.Drawing.Point(3, 592);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(1248, 100);
+            this.panelProduct.TabIndex = 3;
+            this.panelProduct.Visible = false;
+            // 
+            // textBoxProductKey
+            // 
+            this.textBoxProductKey.BackColor = System.Drawing.Color.Black;
+            this.textBoxProductKey.Enabled = false;
+            this.textBoxProductKey.ForeColor = System.Drawing.Color.White;
+            this.textBoxProductKey.Location = new System.Drawing.Point(325, 62);
+            this.textBoxProductKey.Name = "textBoxProductKey";
+            this.textBoxProductKey.Size = new System.Drawing.Size(100, 26);
+            this.textBoxProductKey.TabIndex = 17;
+            this.textBoxProductKey.Visible = false;
+            // 
+            // comboBoxManufacturerKey
+            // 
+            this.comboBoxManufacturerKey.BackColor = System.Drawing.Color.Black;
+            this.comboBoxManufacturerKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxManufacturerKey.ForeColor = System.Drawing.Color.White;
+            this.comboBoxManufacturerKey.FormattingEnabled = true;
+            this.comboBoxManufacturerKey.Location = new System.Drawing.Point(554, 61);
+            this.comboBoxManufacturerKey.Name = "comboBoxManufacturerKey";
+            this.comboBoxManufacturerKey.Size = new System.Drawing.Size(110, 27);
+            this.comboBoxManufacturerKey.TabIndex = 16;
+            this.comboBoxManufacturerKey.Visible = false;
+            // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Location = new System.Drawing.Point(1002, 22);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(43, 19);
+            this.labelPrice.TabIndex = 15;
+            this.labelPrice.Text = "Цена";
+            this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPrice.Visible = false;
+            // 
+            // labelProductName
+            // 
+            this.labelProductName.AutoSize = true;
+            this.labelProductName.Location = new System.Drawing.Point(763, 22);
+            this.labelProductName.Name = "labelProductName";
+            this.labelProductName.Size = new System.Drawing.Size(110, 19);
+            this.labelProductName.TabIndex = 14;
+            this.labelProductName.Text = "Наименование";
+            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelProductName.Visible = false;
+            // 
+            // labelManufacturerKey
+            // 
+            this.labelManufacturerKey.Location = new System.Drawing.Point(540, 5);
+            this.labelManufacturerKey.Name = "labelManufacturerKey";
+            this.labelManufacturerKey.Size = new System.Drawing.Size(139, 53);
+            this.labelManufacturerKey.TabIndex = 13;
+            this.labelManufacturerKey.Text = "Код производителя";
+            this.labelManufacturerKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelManufacturerKey.Visible = false;
+            // 
+            // comboBoxCategoryKey
+            // 
+            this.comboBoxCategoryKey.BackColor = System.Drawing.Color.Black;
+            this.comboBoxCategoryKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCategoryKey.ForeColor = System.Drawing.Color.White;
+            this.comboBoxCategoryKey.FormattingEnabled = true;
+            this.comboBoxCategoryKey.Location = new System.Drawing.Point(440, 61);
+            this.comboBoxCategoryKey.Name = "comboBoxCategoryKey";
+            this.comboBoxCategoryKey.Size = new System.Drawing.Size(99, 27);
+            this.comboBoxCategoryKey.TabIndex = 12;
+            this.comboBoxCategoryKey.Visible = false;
+            // 
+            // buttonCancelProduct
+            // 
+            this.buttonCancelProduct.AutoSize = true;
+            this.buttonCancelProduct.BackColor = System.Drawing.Color.Black;
+            this.buttonCancelProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelProduct.Location = new System.Drawing.Point(1158, 32);
+            this.buttonCancelProduct.Name = "buttonCancelProduct";
+            this.buttonCancelProduct.Size = new System.Drawing.Size(73, 31);
+            this.buttonCancelProduct.TabIndex = 10;
+            this.buttonCancelProduct.Text = "Отмена";
+            this.buttonCancelProduct.UseVisualStyleBackColor = false;
+            this.buttonCancelProduct.Visible = false;
+            this.buttonCancelProduct.Click += new System.EventHandler(this.buttonCancelProduct_Click);
+            // 
+            // buttonOkProduct
+            // 
+            this.buttonOkProduct.AutoSize = true;
+            this.buttonOkProduct.BackColor = System.Drawing.Color.Black;
+            this.buttonOkProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOkProduct.Location = new System.Drawing.Point(1086, 32);
+            this.buttonOkProduct.Name = "buttonOkProduct";
+            this.buttonOkProduct.Size = new System.Drawing.Size(66, 31);
+            this.buttonOkProduct.TabIndex = 9;
+            this.buttonOkProduct.Text = "Ок";
+            this.buttonOkProduct.UseVisualStyleBackColor = false;
+            this.buttonOkProduct.Visible = false;
+            this.buttonOkProduct.Click += new System.EventHandler(this.buttonOkProduct_Click);
+            // 
+            // textBoxProductName
+            // 
+            this.textBoxProductName.BackColor = System.Drawing.Color.Black;
+            this.textBoxProductName.ForeColor = System.Drawing.Color.White;
+            this.textBoxProductName.Location = new System.Drawing.Point(670, 61);
+            this.textBoxProductName.Name = "textBoxProductName";
+            this.textBoxProductName.Size = new System.Drawing.Size(297, 26);
+            this.textBoxProductName.TabIndex = 6;
+            this.textBoxProductName.Visible = false;
+            // 
+            // labelCategoryKey
+            // 
+            this.labelCategoryKey.AutoSize = true;
+            this.labelCategoryKey.Location = new System.Drawing.Point(436, 22);
+            this.labelCategoryKey.Name = "labelCategoryKey";
+            this.labelCategoryKey.Size = new System.Drawing.Size(107, 19);
+            this.labelCategoryKey.TabIndex = 5;
+            this.labelCategoryKey.Text = "Код категории";
+            this.labelCategoryKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelCategoryKey.Visible = false;
+            // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.BackColor = System.Drawing.Color.Black;
+            this.textBoxPrice.ForeColor = System.Drawing.Color.White;
+            this.textBoxPrice.Location = new System.Drawing.Point(973, 61);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(100, 26);
+            this.textBoxPrice.TabIndex = 4;
+            this.textBoxPrice.Visible = false;
+            this.textBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
+            // 
+            // labelProductKey
+            // 
+            this.labelProductKey.AutoSize = true;
+            this.labelProductKey.Location = new System.Drawing.Point(333, 22);
+            this.labelProductKey.Name = "labelProductKey";
+            this.labelProductKey.Size = new System.Drawing.Size(84, 19);
+            this.labelProductKey.TabIndex = 3;
+            this.labelProductKey.Text = "Код товара";
+            this.labelProductKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelProductKey.Visible = false;
+            // 
+            // buttonDeleteProduct
+            // 
+            this.buttonDeleteProduct.AutoSize = true;
+            this.buttonDeleteProduct.BackColor = System.Drawing.Color.Black;
+            this.buttonDeleteProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(208, 34);
+            this.buttonDeleteProduct.Name = "buttonDeleteProduct";
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(86, 31);
+            this.buttonDeleteProduct.TabIndex = 2;
+            this.buttonDeleteProduct.Text = "Удалить";
+            this.buttonDeleteProduct.UseVisualStyleBackColor = false;
+            this.buttonDeleteProduct.Click += new System.EventHandler(this.buttonDeleteProduct_Click);
+            // 
+            // buttonEditProduct
+            // 
+            this.buttonEditProduct.AutoSize = true;
+            this.buttonEditProduct.BackColor = System.Drawing.Color.Black;
+            this.buttonEditProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditProduct.Location = new System.Drawing.Point(115, 34);
+            this.buttonEditProduct.Name = "buttonEditProduct";
+            this.buttonEditProduct.Size = new System.Drawing.Size(87, 31);
+            this.buttonEditProduct.TabIndex = 1;
+            this.buttonEditProduct.Text = "Изменить";
+            this.buttonEditProduct.UseVisualStyleBackColor = false;
+            this.buttonEditProduct.Click += new System.EventHandler(this.buttonEditProduct_Click);
+            // 
+            // buttonAddProduct
+            // 
+            this.buttonAddProduct.AutoSize = true;
+            this.buttonAddProduct.BackColor = System.Drawing.Color.Black;
+            this.buttonAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddProduct.Location = new System.Drawing.Point(23, 34);
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(86, 31);
+            this.buttonAddProduct.TabIndex = 0;
+            this.buttonAddProduct.Text = "Добавить";
+            this.buttonAddProduct.UseVisualStyleBackColor = false;
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
             // 
             // dataGridViewProduct
             // 
@@ -184,7 +401,7 @@
             this.dataGridViewProduct.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridViewProduct.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.dataGridViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProduct.Size = new System.Drawing.Size(1248, 589);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(1248, 689);
             this.dataGridViewProduct.TabIndex = 2;
             // 
             // Product_key
@@ -227,20 +444,11 @@
             this.Price.ReadOnly = true;
             this.Price.Width = 110;
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 592);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1248, 100);
-            this.panel1.TabIndex = 0;
-            // 
             // tabPageStaff
             // 
             this.tabPageStaff.BackColor = System.Drawing.Color.Black;
             this.tabPageStaff.Controls.Add(this.dataGridViewStaff);
-            this.tabPageStaff.Controls.Add(this.panel2);
+            this.tabPageStaff.Controls.Add(this.panelStaff);
             this.tabPageStaff.Location = new System.Drawing.Point(4, 28);
             this.tabPageStaff.Name = "tabPageStaff";
             this.tabPageStaff.Padding = new System.Windows.Forms.Padding(3);
@@ -325,135 +533,166 @@
             // Position
             // 
             this.Position.HeaderText = "Должность";
-            this.Position.MinimumWidth = 90;
+            this.Position.MinimumWidth = 150;
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
-            this.Position.Width = 110;
+            this.Position.Width = 175;
             // 
-            // panel2
+            // panelStaff
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 594);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1250, 100);
-            this.panel2.TabIndex = 0;
+            this.panelStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStaff.Controls.Add(this.comboBoxPosition);
+            this.panelStaff.Controls.Add(this.buttonCancelStaff);
+            this.panelStaff.Controls.Add(this.buttonOkStaff);
+            this.panelStaff.Controls.Add(this.labelPosition);
+            this.panelStaff.Controls.Add(this.textBoxFullName);
+            this.panelStaff.Controls.Add(this.labelFullName);
+            this.panelStaff.Controls.Add(this.textBoxStaffKey);
+            this.panelStaff.Controls.Add(this.labelStaffKey);
+            this.panelStaff.Controls.Add(this.buttonDeleteStaff);
+            this.panelStaff.Controls.Add(this.buttonEditStaff);
+            this.panelStaff.Controls.Add(this.buttonAddStaff);
+            this.panelStaff.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelStaff.Location = new System.Drawing.Point(3, 594);
+            this.panelStaff.Name = "panelStaff";
+            this.panelStaff.Size = new System.Drawing.Size(1250, 100);
+            this.panelStaff.TabIndex = 0;
+            this.panelStaff.Visible = false;
             // 
-            // textBox3
+            // comboBoxPosition
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Black;
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(901, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 26);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.Visible = false;
+            this.comboBoxPosition.BackColor = System.Drawing.Color.Black;
+            this.comboBoxPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxPosition.ForeColor = System.Drawing.Color.White;
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(886, 35);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(180, 27);
+            this.comboBoxPosition.TabIndex = 11;
+            this.comboBoxPosition.Visible = false;
             // 
-            // label3
+            // buttonCancelStaff
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(810, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 19);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Должность";
-            this.label3.Visible = false;
+            this.buttonCancelStaff.AutoSize = true;
+            this.buttonCancelStaff.BackColor = System.Drawing.Color.Black;
+            this.buttonCancelStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelStaff.Location = new System.Drawing.Point(1158, 32);
+            this.buttonCancelStaff.Name = "buttonCancelStaff";
+            this.buttonCancelStaff.Size = new System.Drawing.Size(73, 31);
+            this.buttonCancelStaff.TabIndex = 10;
+            this.buttonCancelStaff.Text = "Отмена";
+            this.buttonCancelStaff.UseVisualStyleBackColor = false;
+            this.buttonCancelStaff.Visible = false;
+            this.buttonCancelStaff.Click += new System.EventHandler(this.buttonCancelStaff_Click);
             // 
-            // textBox2
+            // buttonOkStaff
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Black;
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(621, 35);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 26);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.Visible = false;
+            this.buttonOkStaff.AutoSize = true;
+            this.buttonOkStaff.BackColor = System.Drawing.Color.Black;
+            this.buttonOkStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOkStaff.Location = new System.Drawing.Point(1086, 32);
+            this.buttonOkStaff.Name = "buttonOkStaff";
+            this.buttonOkStaff.Size = new System.Drawing.Size(66, 31);
+            this.buttonOkStaff.TabIndex = 9;
+            this.buttonOkStaff.Text = "Ок";
+            this.buttonOkStaff.UseVisualStyleBackColor = false;
+            this.buttonOkStaff.Visible = false;
+            this.buttonOkStaff.Click += new System.EventHandler(this.buttonOkStaff_Click);
             // 
-            // label2
+            // labelPosition
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(570, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ФИО";
-            this.label2.Visible = false;
+            this.labelPosition.AutoSize = true;
+            this.labelPosition.Location = new System.Drawing.Point(795, 39);
+            this.labelPosition.Name = "labelPosition";
+            this.labelPosition.Size = new System.Drawing.Size(85, 19);
+            this.labelPosition.TabIndex = 7;
+            this.labelPosition.Text = "Должность";
+            this.labelPosition.Visible = false;
             // 
-            // textBox1
+            // textBoxFullName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(464, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Visible = false;
+            this.textBoxFullName.BackColor = System.Drawing.Color.Black;
+            this.textBoxFullName.ForeColor = System.Drawing.Color.White;
+            this.textBoxFullName.Location = new System.Drawing.Point(606, 35);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(183, 26);
+            this.textBoxFullName.TabIndex = 6;
+            this.textBoxFullName.Visible = false;
             // 
-            // label1
+            // labelFullName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Код персонала";
-            this.label1.Visible = false;
+            this.labelFullName.AutoSize = true;
+            this.labelFullName.Location = new System.Drawing.Point(555, 39);
+            this.labelFullName.Name = "labelFullName";
+            this.labelFullName.Size = new System.Drawing.Size(45, 19);
+            this.labelFullName.TabIndex = 5;
+            this.labelFullName.Text = "ФИО";
+            this.labelFullName.Visible = false;
             // 
-            // button3
+            // textBoxStaffKey
             // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(208, 34);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 31);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.textBoxStaffKey.BackColor = System.Drawing.Color.Black;
+            this.textBoxStaffKey.Enabled = false;
+            this.textBoxStaffKey.ForeColor = System.Drawing.Color.White;
+            this.textBoxStaffKey.Location = new System.Drawing.Point(449, 35);
+            this.textBoxStaffKey.Name = "textBoxStaffKey";
+            this.textBoxStaffKey.Size = new System.Drawing.Size(100, 26);
+            this.textBoxStaffKey.TabIndex = 4;
+            this.textBoxStaffKey.Visible = false;
             // 
-            // button2
+            // labelStaffKey
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(115, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 31);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelStaffKey.AutoSize = true;
+            this.labelStaffKey.Location = new System.Drawing.Point(334, 39);
+            this.labelStaffKey.Name = "labelStaffKey";
+            this.labelStaffKey.Size = new System.Drawing.Size(109, 19);
+            this.labelStaffKey.TabIndex = 3;
+            this.labelStaffKey.Text = "Код персонала";
+            this.labelStaffKey.Visible = false;
             // 
-            // button1
+            // buttonDeleteStaff
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(23, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDeleteStaff.AutoSize = true;
+            this.buttonDeleteStaff.BackColor = System.Drawing.Color.Black;
+            this.buttonDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteStaff.Location = new System.Drawing.Point(208, 34);
+            this.buttonDeleteStaff.Name = "buttonDeleteStaff";
+            this.buttonDeleteStaff.Size = new System.Drawing.Size(86, 31);
+            this.buttonDeleteStaff.TabIndex = 2;
+            this.buttonDeleteStaff.Text = "Удалить";
+            this.buttonDeleteStaff.UseVisualStyleBackColor = false;
+            this.buttonDeleteStaff.Click += new System.EventHandler(this.buttonDeleteStaff_Click);
+            // 
+            // buttonEditStaff
+            // 
+            this.buttonEditStaff.AutoSize = true;
+            this.buttonEditStaff.BackColor = System.Drawing.Color.Black;
+            this.buttonEditStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditStaff.Location = new System.Drawing.Point(115, 34);
+            this.buttonEditStaff.Name = "buttonEditStaff";
+            this.buttonEditStaff.Size = new System.Drawing.Size(87, 31);
+            this.buttonEditStaff.TabIndex = 1;
+            this.buttonEditStaff.Text = "Изменить";
+            this.buttonEditStaff.UseVisualStyleBackColor = false;
+            this.buttonEditStaff.Click += new System.EventHandler(this.buttonEditStaff_Click);
+            // 
+            // buttonAddStaff
+            // 
+            this.buttonAddStaff.AutoSize = true;
+            this.buttonAddStaff.BackColor = System.Drawing.Color.Black;
+            this.buttonAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddStaff.Location = new System.Drawing.Point(23, 34);
+            this.buttonAddStaff.Name = "buttonAddStaff";
+            this.buttonAddStaff.Size = new System.Drawing.Size(86, 31);
+            this.buttonAddStaff.TabIndex = 0;
+            this.buttonAddStaff.Text = "Добавить";
+            this.buttonAddStaff.UseVisualStyleBackColor = false;
+            this.buttonAddStaff.Click += new System.EventHandler(this.buttonAddStaff_Click);
             // 
             // tabPageManufacturer
             // 
             this.tabPageManufacturer.BackColor = System.Drawing.Color.Black;
             this.tabPageManufacturer.Controls.Add(this.dataGridViewManufacturer);
-            this.tabPageManufacturer.Controls.Add(this.panel3);
             this.tabPageManufacturer.Location = new System.Drawing.Point(4, 28);
             this.tabPageManufacturer.Name = "tabPageManufacturer";
             this.tabPageManufacturer.Size = new System.Drawing.Size(1256, 697);
@@ -514,7 +753,7 @@
             this.dataGridViewManufacturer.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridViewManufacturer.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.dataGridViewManufacturer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewManufacturer.Size = new System.Drawing.Size(1256, 597);
+            this.dataGridViewManufacturer.Size = new System.Drawing.Size(1256, 697);
             this.dataGridViewManufacturer.TabIndex = 2;
             // 
             // Manufacturers_key
@@ -533,20 +772,10 @@
             this.Name_of_product.ReadOnly = true;
             this.Name_of_product.Width = 350;
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 597);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1256, 100);
-            this.panel3.TabIndex = 0;
-            // 
             // tabPageReceipt
             // 
             this.tabPageReceipt.BackColor = System.Drawing.Color.Black;
             this.tabPageReceipt.Controls.Add(this.dataGridViewReceipt);
-            this.tabPageReceipt.Controls.Add(this.panel4);
             this.tabPageReceipt.Location = new System.Drawing.Point(4, 28);
             this.tabPageReceipt.Name = "tabPageReceipt";
             this.tabPageReceipt.Size = new System.Drawing.Size(1256, 697);
@@ -609,7 +838,7 @@
             this.dataGridViewReceipt.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridViewReceipt.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.dataGridViewReceipt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReceipt.Size = new System.Drawing.Size(1256, 597);
+            this.dataGridViewReceipt.Size = new System.Drawing.Size(1256, 697);
             this.dataGridViewReceipt.TabIndex = 2;
             // 
             // Receipt_key
@@ -644,45 +873,9 @@
             this.Sales_price.ReadOnly = true;
             this.Sales_price.Width = 125;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 597);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1256, 100);
-            this.panel4.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1086, 32);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(66, 31);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Ok";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.AutoSize = true;
-            this.button5.BackColor = System.Drawing.Color.Black;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(1158, 32);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 31);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Cancel";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // FormCatalog
             // 
+            this.AcceptButton = this.buttonOkStaff;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -696,13 +889,17 @@
             this.Name = "FormCatalog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mobiland";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCatalog_FormClosing);
+            this.Load += new System.EventHandler(this.FormCatalog_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageProducts.ResumeLayout(false);
+            this.panelProduct.ResumeLayout(false);
+            this.panelProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
             this.tabPageStaff.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStaff)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelStaff.ResumeLayout(false);
+            this.panelStaff.PerformLayout();
             this.tabPageManufacturer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManufacturer)).EndInit();
             this.tabPageReceipt.ResumeLayout(false);
@@ -718,10 +915,7 @@
         private System.Windows.Forms.TabPage tabPageStaff;
         private System.Windows.Forms.TabPage tabPageManufacturer;
         private System.Windows.Forms.TabPage tabPageReceipt;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelStaff;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_key;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_key;
@@ -729,9 +923,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridView dataGridViewStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Staff_key;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Full_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
         private System.Windows.Forms.DataGridView dataGridViewManufacturer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Manufacturers_key;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_of_product;
@@ -740,16 +931,35 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Staf_key;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sales_price;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label labelPosition;
+        private System.Windows.Forms.TextBox textBoxFullName;
+        private System.Windows.Forms.Label labelFullName;
+        private System.Windows.Forms.TextBox textBoxStaffKey;
+        private System.Windows.Forms.Label labelStaffKey;
+        private System.Windows.Forms.Button buttonDeleteStaff;
+        private System.Windows.Forms.Button buttonEditStaff;
+        private System.Windows.Forms.Button buttonAddStaff;
+        private System.Windows.Forms.Button buttonCancelStaff;
+        private System.Windows.Forms.Button buttonOkStaff;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.Panel panelProduct;
+        private System.Windows.Forms.Button buttonCancelProduct;
+        private System.Windows.Forms.Button buttonOkProduct;
+        private System.Windows.Forms.TextBox textBoxProductName;
+        private System.Windows.Forms.Label labelCategoryKey;
+        private System.Windows.Forms.TextBox textBoxPrice;
+        private System.Windows.Forms.Label labelProductKey;
+        private System.Windows.Forms.Button buttonDeleteProduct;
+        private System.Windows.Forms.Button buttonEditProduct;
+        private System.Windows.Forms.Button buttonAddProduct;
+        private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Label labelProductName;
+        private System.Windows.Forms.Label labelManufacturerKey;
+        private System.Windows.Forms.ComboBox comboBoxCategoryKey;
+        private System.Windows.Forms.ComboBox comboBoxManufacturerKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Staff_key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Full_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.TextBox textBoxProductKey;
     }
 }

@@ -36,25 +36,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCatalog = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.labelStaff = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonShowReceipt = new System.Windows.Forms.Button();
+            this.buttonCloseReceipt = new System.Windows.Forms.Button();
             this.buttonAddProductToReceipt = new System.Windows.Forms.Button();
             this.buttonCreateReceipt = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelSelectDate = new System.Windows.Forms.Label();
             this.comboBoxSelectStaff = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelSelectStaff = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Product_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category_key = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +63,6 @@
             this.Product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobilandDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonClear = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,79 +75,94 @@
             // 
             this.menuStrip2.BackColor = System.Drawing.Color.Black;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.toolStripMenuItemCatalog,
+            this.toolStripMenuItemAbout,
+            this.toolStripMenuItemExit});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip2.TabIndex = 0;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItemCatalog
             // 
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(87, 20);
-            this.toolStripMenuItem1.Text = "Справочник";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItemCatalog.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemCatalog.Name = "toolStripMenuItemCatalog";
+            this.toolStripMenuItemCatalog.Size = new System.Drawing.Size(87, 20);
+            this.toolStripMenuItemCatalog.Text = "Справочник";
+            this.toolStripMenuItemCatalog.Click += new System.EventHandler(this.toolStripMenuItemCatalog_Click);
             // 
-            // toolStripMenuItem2
+            // toolStripMenuItemAbout
             // 
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(94, 20);
-            this.toolStripMenuItem2.Text = "О программе";
+            this.toolStripMenuItemAbout.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(94, 20);
+            this.toolStripMenuItemAbout.Text = "О программе";
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItemExit
             // 
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(54, 20);
-            this.toolStripMenuItem3.Text = "Выход";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.toolStripMenuItemExit.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(54, 20);
+            this.toolStripMenuItemExit.Text = "Выход";
+            this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.buttonClear);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.labelDate);
+            this.panel2.Controls.Add(this.labelStaff);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.textBoxSearch);
             this.panel2.Controls.Add(this.labelSearch);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.buttonCreateReceipt);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.labelSelectDate);
             this.panel2.Controls.Add(this.comboBoxSelectStaff);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.labelSelectStaff);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 523);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1264, 206);
             this.panel2.TabIndex = 1;
             // 
-            // label4
+            // buttonClear
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(482, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Дата";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Visible = false;
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.AutoSize = true;
+            this.buttonClear.BackColor = System.Drawing.Color.Black;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Location = new System.Drawing.Point(1216, 59);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(30, 31);
+            this.buttonClear.TabIndex = 8;
+            this.buttonClear.Text = "×";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Visible = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
-            // label3
+            // labelDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(173, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 19);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Кассир";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Visible = false;
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(482, 22);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(41, 19);
+            this.labelDate.TabIndex = 8;
+            this.labelDate.Text = "Дата";
+            this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDate.Visible = false;
+            // 
+            // labelStaff
+            // 
+            this.labelStaff.AutoSize = true;
+            this.labelStaff.Location = new System.Drawing.Point(173, 22);
+            this.labelStaff.Name = "labelStaff";
+            this.labelStaff.Size = new System.Drawing.Size(58, 19);
+            this.labelStaff.TabIndex = 7;
+            this.labelStaff.Text = "Кассир";
+            this.labelStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStaff.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -184,10 +199,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.labelCount);
             this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonShowReceipt);
+            this.groupBox1.Controls.Add(this.buttonCloseReceipt);
             this.groupBox1.Controls.Add(this.buttonAddProductToReceipt);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -199,15 +214,15 @@
             this.groupBox1.Text = "Продажа";
             this.groupBox1.Visible = false;
             // 
-            // label5
+            // labelCount
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(298, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 19);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Количество";
+            this.labelCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(298, 47);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(89, 19);
+            this.labelCount.TabIndex = 10;
+            this.labelCount.Text = "Количество";
             // 
             // numericUpDown1
             // 
@@ -230,31 +245,31 @@
             0,
             0});
             // 
-            // button4
+            // buttonShowReceipt
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(914, 41);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 30);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Просмотреть чек";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonShowReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonShowReceipt.BackColor = System.Drawing.Color.Black;
+            this.buttonShowReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShowReceipt.Location = new System.Drawing.Point(914, 41);
+            this.buttonShowReceipt.Name = "buttonShowReceipt";
+            this.buttonShowReceipt.Size = new System.Drawing.Size(147, 30);
+            this.buttonShowReceipt.TabIndex = 9;
+            this.buttonShowReceipt.Text = "Просмотреть чек";
+            this.buttonShowReceipt.UseVisualStyleBackColor = false;
+            this.buttonShowReceipt.Click += new System.EventHandler(this.buttonShowReceipt_Click);
             // 
-            // button3
+            // buttonCloseReceipt
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(1097, 41);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 30);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Закрыть чек";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonCloseReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCloseReceipt.BackColor = System.Drawing.Color.Black;
+            this.buttonCloseReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCloseReceipt.Location = new System.Drawing.Point(1097, 41);
+            this.buttonCloseReceipt.Name = "buttonCloseReceipt";
+            this.buttonCloseReceipt.Size = new System.Drawing.Size(133, 30);
+            this.buttonCloseReceipt.TabIndex = 10;
+            this.buttonCloseReceipt.Text = "Закрыть чек";
+            this.buttonCloseReceipt.UseVisualStyleBackColor = false;
+            this.buttonCloseReceipt.Click += new System.EventHandler(this.buttonCloseReceipt_Click);
             // 
             // buttonAddProductToReceipt
             // 
@@ -281,15 +296,15 @@
             this.buttonCreateReceipt.UseVisualStyleBackColor = false;
             this.buttonCreateReceipt.Click += new System.EventHandler(this.buttonCreateReceipt_Click);
             // 
-            // label2
+            // labelSelectDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(448, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Выберите дату";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSelectDate.AutoSize = true;
+            this.labelSelectDate.Location = new System.Drawing.Point(448, 22);
+            this.labelSelectDate.Name = "labelSelectDate";
+            this.labelSelectDate.Size = new System.Drawing.Size(109, 19);
+            this.labelSelectDate.TabIndex = 2;
+            this.labelSelectDate.Text = "Выберите дату";
+            this.labelSelectDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxSelectStaff
             // 
@@ -302,15 +317,15 @@
             this.comboBoxSelectStaff.Size = new System.Drawing.Size(269, 27);
             this.comboBoxSelectStaff.TabIndex = 1;
             // 
-            // label1
+            // labelSelectStaff
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Выберите кассира";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSelectStaff.AutoSize = true;
+            this.labelSelectStaff.Location = new System.Drawing.Point(136, 22);
+            this.labelSelectStaff.Name = "labelSelectStaff";
+            this.labelSelectStaff.Size = new System.Drawing.Size(132, 19);
+            this.labelSelectStaff.TabIndex = 0;
+            this.labelSelectStaff.Text = "Выберите кассира";
+            this.labelSelectStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView2
             // 
@@ -414,21 +429,6 @@
             this.Price.ReadOnly = true;
             this.Price.Width = 110;
             // 
-            // buttonClear
-            // 
-            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClear.AutoSize = true;
-            this.buttonClear.BackColor = System.Drawing.Color.Black;
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Location = new System.Drawing.Point(1216, 59);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(30, 31);
-            this.buttonClear.TabIndex = 8;
-            this.buttonClear.Text = "×";
-            this.buttonClear.UseVisualStyleBackColor = false;
-            this.buttonClear.Visible = false;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
-            // 
             // FormMain
             // 
             this.BackColor = System.Drawing.Color.Black;
@@ -446,7 +446,6 @@
             this.Text = "Mobiland";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed_1);
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -473,26 +472,26 @@
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.BindingSource tovarBindingSource;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCatalog;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button buttonCreateReceipt;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSelectDate;
         private System.Windows.Forms.ComboBox comboBoxSelectStaff;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelSelectStaff;
         private System.Windows.Forms.BindingSource mobilandDataSetBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.Button buttonAddProductToReceipt;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonShowReceipt;
+        private System.Windows.Forms.Button buttonCloseReceipt;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Label labelStaff;
+        private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_key;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_key;

@@ -13,21 +13,15 @@ namespace Mobiland
 {
     public partial class FormMain : Form
     {
-        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ADMIN\source\repos\Mobiland_C\Mobiland\Mobiland\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Mobiland.mdf;Integrated Security=True;MultipleActiveResultSets=True");
         public FormMain()
         {
             InitializeComponent();
-            if(connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-                FillStaff();
-            }
+            FillStaff();
         }
 
         private async void FillProducts()
         {
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Product]",connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Product]",Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -48,7 +42,7 @@ namespace Mobiland
 
         private async void FillStaff()
         {
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Staff]", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Staff]", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -63,7 +57,7 @@ namespace Mobiland
 
         private async void InsertReceipt(int Staff_key, DateTime Date, float Total_amount)
         {
-            using (SqlCommand command = new SqlCommand($"INSERT INTO [Receipt] ([Staff_key],[Date],[Total_amount]) VALUES ({Staff_key}, @date, {Total_amount})", connection))
+            using (SqlCommand command = new SqlCommand($"INSERT INTO [Receipt] ([Staff_key],[Date],[Total_amount]) VALUES ({Staff_key}, @date, {Total_amount})", Program.connection))
             {
                 command.Parameters.AddWithValue("@date", Date);
                 await command.ExecuteNonQueryAsync();
@@ -75,7 +69,7 @@ namespace Mobiland
             int Receipt_key, Product_key;
             double Total_amount;
 
-            using (SqlCommand command1 = new SqlCommand($"SELECT TOP 1 [Receipt_key],[Total_amount] FROM [Receipt] ORDER BY Receipt_key DESC", connection))
+            using (SqlCommand command1 = new SqlCommand($"SELECT TOP 1 [Receipt_key],[Total_amount] FROM [Receipt] ORDER BY Receipt_key DESC", Program.connection))
             {
                 using (SqlDataReader reader1 = await command1.ExecuteReaderAsync())
                 {
@@ -85,7 +79,7 @@ namespace Mobiland
                 }
             }
 
-            using (SqlCommand command2 = new SqlCommand($"SELECT [Product_key] FROM [Product] WHERE [Product_name] LIKE '{Product_name}'", connection))
+            using (SqlCommand command2 = new SqlCommand($"SELECT [Product_key] FROM [Product] WHERE [Product_name] LIKE '{Product_name}'", Program.connection))
             {
                 using (SqlDataReader reader2 = await command2.ExecuteReaderAsync())
                 {
@@ -97,12 +91,12 @@ namespace Mobiland
             float Sales_price = Amount * Price;
             Total_amount += Sales_price;
 
-            using (SqlCommand command3 = new SqlCommand($"UPDATE [Receipt] SET [Total_amount] = '{Total_amount}' WHERE [Receipt_key] = '{Receipt_key}'", connection))
+            using (SqlCommand command3 = new SqlCommand($"UPDATE [Receipt] SET [Total_amount] = '{Total_amount}' WHERE [Receipt_key] = '{Receipt_key}'", Program.connection))
             {
                 await command3.ExecuteNonQueryAsync();
             }
 
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Sales] WHERE [Product_key] LIKE '{Product_key}' AND [Receipt_key] LIKE '{Receipt_key}'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Sales] WHERE [Product_key] LIKE '{Product_key}' AND [Receipt_key] LIKE '{Receipt_key}'", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -110,14 +104,14 @@ namespace Mobiland
                     if (reader.HasRows)
                     {
                         Amount += reader.GetInt32(3);
-                        using (SqlCommand command2 = new SqlCommand($"UPDATE [Sales] SET [Amount] = '{Amount}', [Sales_price] = '{Total_amount}'  WHERE [Receipt_key] = '{Receipt_key}'", connection))
+                        using (SqlCommand command2 = new SqlCommand($"UPDATE [Sales] SET [Amount] = '{Amount}', [Sales_price] = '{Total_amount}'  WHERE [Receipt_key] = '{Receipt_key}'", Program.connection))
                         {
                             await command2.ExecuteNonQueryAsync();
                         }
                     }
                     else
                     {
-                        using (SqlCommand command1 = new SqlCommand($"INSERT INTO [Sales] ([Receipt_key],[Product_key],[Amount],[Sales_price],[Date]) VALUES ({Receipt_key},{Product_key},{Amount},{Sales_price},@date)", connection))
+                        using (SqlCommand command1 = new SqlCommand($"INSERT INTO [Sales] ([Receipt_key],[Product_key],[Amount],[Sales_price],[Date]) VALUES ({Receipt_key},{Product_key},{Amount},{Sales_price},@date)", Program.connection))
                         {
                             command1.Parameters.AddWithValue("@date", Date);
                             await command1.ExecuteNonQueryAsync();
@@ -129,7 +123,7 @@ namespace Mobiland
 
         private async Task<int> SelectStaff(string Value)
         {
-            using (SqlCommand command = new SqlCommand($"SELECT [Staff_key] FROM [Staff] WHERE [Full_name] LIKE '{Value}'",connection))
+            using (SqlCommand command = new SqlCommand($"SELECT [Staff_key] FROM [Staff] WHERE [Full_name] LIKE '{Value}'",Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -146,20 +140,6 @@ namespace Mobiland
             FormLogin.Visible = true;
         }
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-            Application.Exit();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private async void buttonCreateReceipt_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrEmpty(Convert.ToString(comboBoxSelectStaff.SelectedItem)))
@@ -167,12 +147,12 @@ namespace Mobiland
                 dateTimePicker1.Enabled = false;
                 buttonCreateReceipt.Visible = false;
                 comboBoxSelectStaff.Enabled = false;
-                label1.Visible = false;
-                label2.Visible = false;
+                labelSelectStaff.Visible = false;
+                labelSelectDate.Visible = false;
 
                 dataGridView2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
+                labelStaff.Visible = true;
+                labelDate.Visible = true;
                 labelSearch.Visible = true;
                 textBoxSearch.Visible = true;
                 groupBox1.Visible = true;
@@ -192,40 +172,15 @@ namespace Mobiland
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (connection.State == ConnectionState.Open)
+            if (Program.connection.State == ConnectionState.Open)
             {
-                connection.Close();
+                Program.connection.Close();
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //show receipt by using crystal report
-
-            dateTimePicker1.Enabled = true;
-            buttonCreateReceipt.Visible = true;
-            comboBoxSelectStaff.Enabled = true;
-            label1.Visible = true;
-            label2.Visible = true;
-
-            dataGridView2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            labelSearch.Visible = false;
-            textBoxSearch.Visible = false;
-            groupBox1.Visible = false;
-            buttonClear.Visible = false;
         }
 
         private void dataGridView2_DoubleClick(object sender, EventArgs e)
         {
             buttonAddProductToReceipt_Click(sender, e);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            FormReceipt FormReceipt = new FormReceipt();
-            FormReceipt.ShowDialog();
         }
 
         private void buttonAddProductToReceipt_Click(object sender, EventArgs e)
@@ -253,7 +208,7 @@ namespace Mobiland
             {
                 FillProducts();
             }
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Product] WHERE [Product_name] LIKE '%{textBoxSearch.Text}%'", connection))
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM [Product] WHERE [Product_name] LIKE '%{textBoxSearch.Text}%'", Program.connection))
             {
                 using (SqlDataReader reader = await command.ExecuteReaderAsync())
                 {
@@ -273,7 +228,7 @@ namespace Mobiland
                     }
                     else
                     {
-                        using (SqlCommand command1 = new SqlCommand($"SELECT * FROM [Product] WHERE [Product_key] LIKE '{textBoxSearch.Text}%'", connection))
+                        using (SqlCommand command1 = new SqlCommand($"SELECT * FROM [Product] WHERE [Product_key] LIKE '{textBoxSearch.Text}%'", Program.connection))
                         {
                             using (SqlDataReader reader1 = await command1.ExecuteReaderAsync())
                             {
@@ -308,10 +263,63 @@ namespace Mobiland
             textBoxSearch.Text = null;
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void buttonShowReceipt_Click(object sender, EventArgs e)
+        {
+            FormReceipt FormReceipt = new FormReceipt();
+            FormReceipt.ShowDialog();
+        }
+
+        private void buttonCloseReceipt_Click(object sender, EventArgs e)
+        {
+            FormReport formReport = new FormReport();
+            formReport.Show();
+
+            dateTimePicker1.Enabled = true;
+            buttonCreateReceipt.Visible = true;
+            comboBoxSelectStaff.Enabled = true;
+            labelSelectStaff.Visible = true;
+            labelSelectDate.Visible = true;
+
+            dataGridView2.Visible = false;
+            labelStaff.Visible = false;
+            labelDate.Visible = false;
+            labelSearch.Visible = false;
+            textBoxSearch.Visible = false;
+            groupBox1.Visible = false;
+            buttonClear.Visible = false;
+        }
+
+        private void toolStripMenuItemCatalog_Click(object sender, EventArgs e)
         {
             FormCatalog FormCatalog = new FormCatalog();
-            FormCatalog.Show();
+            if (groupBox1.Visible == true)
+            {
+                DialogResult dialogResult = MessageBox.Show("Текущий чек будет закрыт?", "Mobiland", MessageBoxButtons.OKCancel);
+                if (dialogResult == DialogResult.OK)
+                {
+                    FormCatalog.Show();
+                    this.Hide();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    numericUpDown1.Value = 1;
+                }
+            }
+            else
+            {
+                FormCatalog.Show();
+                this.Hide();
+            }
+        }
+
+        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            if (Program.connection.State == ConnectionState.Open)
+            {
+                Program.connection.Close();
+            }
+
+            Application.Exit();
         }
     }
 }
